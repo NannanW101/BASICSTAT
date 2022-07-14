@@ -2,3 +2,6 @@ chance-model
 coin-flipping-simulation
 doris-buzz-simulation
 hypothesis-testing
+confidence-interval
+z-test
+t-test

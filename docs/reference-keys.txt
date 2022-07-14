@@ -1,0 +1,4 @@
+chance-model
+coin-flipping-simulation
+doris-buzz-simulation
+hypothesis-testing

@@ -53,6 +53,25 @@ ggplot(simulatedDisM, aes(x = dis100Rep)) +
   labs(x="Number of Head")
 ```
 
+## Binomial Distribution Calculator
+```{r}
+# This example illustrate how to calculate the probablibity of obtaining 0 success from flipping a coin 10 times
+numberTrial <- 10
+numberSuccess <- 0
+successProb <- 0.5
+probability <- function(n, x) {
+    factorial(n) / factorial(n-x) / factorial(x)*0.5^x*0.5^(n-x)
+  }
+prob0 <- probability(numberTrial,numberSuccess)
+
+# Plot the distribution of getting number of heads from flipping a coin 10 times
+distvector <- vector('numeric',length = 10)
+for (i in 1:10){
+  distvector[i] <- probability(10,i)
+}
+dis <- as.data.frame(cbind(seq(1,10),distvector))
+barplot(dis$distvector,ylim=c(0,0.3),names.arg = dis$V1)
+```
 
 
 

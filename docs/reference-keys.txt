@@ -6,3 +6,4 @@ confidence-interval
 z-test
 t-test
 binomial-distribution-calculator
+rock-paper-scissors

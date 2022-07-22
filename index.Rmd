@@ -53,6 +53,7 @@ ggplot(simulatedDisM, aes(x = dis100Rep)) +
   labs(x="Number of Head")
 ```
 
+
 ## Binomial Distribution Calculator
 ```{r}
 # This example illustrate how to calculate the probablibity of obtaining 0 success from flipping a coin 10 times

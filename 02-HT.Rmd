@@ -3,18 +3,18 @@
 ## Rock-Paper-Scissors
 ```{r}
 # This example illustrate how to find the binomial distribution of the Rock-Paper-Scissors example
-numberTrial <- 100
-parameter <- 1/2
+numberTrial <- 12
+parameter <- 1/3
 probability <- function(n, x) {
     factorial(n) / factorial(n-x) / factorial(x)*(parameter)^x*(1-parameter)^(n-x)
   }
 # create a dataframe for saving the probability of different number of scissors thrown out of 12 times under the null hypothesis
-distvector <- vector('numeric',length = 101)
-for (i in 0:100){
-  distvector[i+1] <- probability(100,i)
+distvector <- vector('numeric',length = 13)
+for (i in 0:12){
+  distvector[i+1] <- probability(12,i)
 }
-dis <- as.data.frame(cbind(seq(0,100),distvector))
+dis <- as.data.frame(cbind(seq(0,12),distvector))
 dis
 # Plot the distribution of getting number of heads from flipping a coin 10 times
-barplot(dis$distvector,ylim=c(0,0.1),names.arg = dis$V1)
+barplot(dis$distvector,ylim=c(0,0.3),names.arg = dis$V1)
 ```

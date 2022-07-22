@@ -1,6 +1,7 @@
 # Hypothesis Testing
 
 ## Rock-Paper-Scissors Distribution
+
 ```{r}
 # This example illustrate how to find the binomial distribution of the Rock-Paper-Scissors example
 numberTrial <- 12

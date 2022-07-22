@@ -144,7 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>2</b> Hypothesis Testing</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#rock-paper-scissors"><i class="fa fa-check"></i><b>2.1</b> Rock-Paper-Scissors</a></li>
+<li class="chapter" data-level="2.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#rock-paper-scissors-distribution"><i class="fa fa-check"></i><b>2.1</b> Rock-Paper-Scissors Distribution</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="confidence-interval.html"><a href="confidence-interval.html"><i class="fa fa-check"></i><b>3</b> Confidence Interval</a></li>
 <li class="chapter" data-level="4" data-path="z-test.html"><a href="z-test.html"><i class="fa fa-check"></i><b>4</b> z test</a></li>
@@ -170,125 +170,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="hypothesis-testing" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Hypothesis Testing<a href="hypothesis-testing.html#hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="rock-paper-scissors" class="section level2 hasAnchor" number="2.1">
-<h2><span class="header-section-number">2.1</span> Rock-Paper-Scissors<a href="hypothesis-testing.html#rock-paper-scissors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="rock-paper-scissors-distribution" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Rock-Paper-Scissors Distribution<a href="hypothesis-testing.html#rock-paper-scissors-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="hypothesis-testing.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This example illustrate how to find the binomial distribution of the Rock-Paper-Scissors example</span></span>
-<span id="cb1-2"><a href="hypothesis-testing.html#cb1-2" aria-hidden="true" tabindex="-1"></a>numberTrial <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb1-3"><a href="hypothesis-testing.html#cb1-3" aria-hidden="true" tabindex="-1"></a>parameter <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb1-2"><a href="hypothesis-testing.html#cb1-2" aria-hidden="true" tabindex="-1"></a>numberTrial <span class="ot">&lt;-</span> <span class="dv">12</span></span>
+<span id="cb1-3"><a href="hypothesis-testing.html#cb1-3" aria-hidden="true" tabindex="-1"></a>parameter <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
 <span id="cb1-4"><a href="hypothesis-testing.html#cb1-4" aria-hidden="true" tabindex="-1"></a>probability <span class="ot">&lt;-</span> <span class="cf">function</span>(n, x) {</span>
 <span id="cb1-5"><a href="hypothesis-testing.html#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">factorial</span>(n) <span class="sc">/</span> <span class="fu">factorial</span>(n<span class="sc">-</span>x) <span class="sc">/</span> <span class="fu">factorial</span>(x)<span class="sc">*</span>(parameter)<span class="sc">^</span>x<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>parameter)<span class="sc">^</span>(n<span class="sc">-</span>x)</span>
 <span id="cb1-6"><a href="hypothesis-testing.html#cb1-6" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb1-7"><a href="hypothesis-testing.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># create a dataframe for saving the probability of different number of scissors thrown out of 12 times under the null hypothesis</span></span>
-<span id="cb1-8"><a href="hypothesis-testing.html#cb1-8" aria-hidden="true" tabindex="-1"></a>distvector <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&#39;numeric&#39;</span>,<span class="at">length =</span> <span class="dv">101</span>)</span>
-<span id="cb1-9"><a href="hypothesis-testing.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">100</span>){</span>
-<span id="cb1-10"><a href="hypothesis-testing.html#cb1-10" aria-hidden="true" tabindex="-1"></a>  distvector[i<span class="sc">+</span><span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">probability</span>(<span class="dv">100</span>,i)</span>
+<span id="cb1-8"><a href="hypothesis-testing.html#cb1-8" aria-hidden="true" tabindex="-1"></a>distvector <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&#39;numeric&#39;</span>,<span class="at">length =</span> <span class="dv">13</span>)</span>
+<span id="cb1-9"><a href="hypothesis-testing.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">12</span>){</span>
+<span id="cb1-10"><a href="hypothesis-testing.html#cb1-10" aria-hidden="true" tabindex="-1"></a>  distvector[i<span class="sc">+</span><span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">probability</span>(<span class="dv">12</span>,i)</span>
 <span id="cb1-11"><a href="hypothesis-testing.html#cb1-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-12"><a href="hypothesis-testing.html#cb1-12" aria-hidden="true" tabindex="-1"></a>dis <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>),distvector))</span>
+<span id="cb1-12"><a href="hypothesis-testing.html#cb1-12" aria-hidden="true" tabindex="-1"></a>dis <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">12</span>),distvector))</span>
 <span id="cb1-13"><a href="hypothesis-testing.html#cb1-13" aria-hidden="true" tabindex="-1"></a>dis</span></code></pre></div>
-<pre><code>##      V1   distvector
-## 1     0 7.888609e-31
-## 2     1 7.888609e-29
-## 3     2 3.904861e-27
-## 4     3 1.275588e-25
-## 5     4 3.093301e-24
-## 6     5 5.939138e-23
-## 7     6 9.403635e-22
-## 8     7 1.262774e-20
-## 9     8 1.467975e-19
-## 10    9 1.500596e-18
-## 11   10 1.365543e-17
-## 12   11 1.117262e-16
-## 13   12 8.286361e-16
-## 14   13 5.609229e-15
-## 15   14 3.485735e-14
-## 16   15 1.998488e-13
-## 17   16 1.061697e-12
-## 18   17 5.246031e-12
-## 19   18 2.419003e-11
-## 20   19 1.043991e-10
-## 21   20 4.228163e-10
-## 22   21 1.610729e-09
-## 23   22 5.783981e-09
-## 24   23 1.961524e-08
-## 25   24 6.293223e-08
-## 26   25 1.913140e-07
-## 27   26 5.518672e-07
-## 28   27 1.512525e-06
-## 29   28 3.943369e-06
-## 30   29 9.790433e-06
-## 31   30 2.317069e-05
-## 32   31 5.232091e-05
-## 33   32 1.128170e-04
-## 34   33 2.324713e-04
-## 35   34 4.581053e-04
-## 36   35 8.638557e-04
-## 37   36 1.559739e-03
-## 38   37 2.697928e-03
-## 39   38 4.472880e-03
-## 40   39 7.110732e-03
-## 41   40 1.084387e-02
-## 42   41 1.586907e-02
-## 43   42 2.229227e-02
-## 44   43 3.006864e-02
-## 45   44 3.895256e-02
-## 46   45 4.847430e-02
-## 47   46 5.795840e-02
-## 48   47 6.659050e-02
-## 49   48 7.352701e-02
-## 50   49 7.802866e-02
-## 51   50 7.958924e-02
-## 52   51 7.802866e-02
-## 53   52 7.352701e-02
-## 54   53 6.659050e-02
-## 55   54 5.795840e-02
-## 56   55 4.847430e-02
-## 57   56 3.895256e-02
-## 58   57 3.006864e-02
-## 59   58 2.229227e-02
-## 60   59 1.586907e-02
-## 61   60 1.084387e-02
-## 62   61 7.110732e-03
-## 63   62 4.472880e-03
-## 64   63 2.697928e-03
-## 65   64 1.559739e-03
-## 66   65 8.638557e-04
-## 67   66 4.581053e-04
-## 68   67 2.324713e-04
-## 69   68 1.128170e-04
-## 70   69 5.232091e-05
-## 71   70 2.317069e-05
-## 72   71 9.790433e-06
-## 73   72 3.943369e-06
-## 74   73 1.512525e-06
-## 75   74 5.518672e-07
-## 76   75 1.913140e-07
-## 77   76 6.293223e-08
-## 78   77 1.961524e-08
-## 79   78 5.783981e-09
-## 80   79 1.610729e-09
-## 81   80 4.228163e-10
-## 82   81 1.043991e-10
-## 83   82 2.419003e-11
-## 84   83 5.246031e-12
-## 85   84 1.061697e-12
-## 86   85 1.998488e-13
-## 87   86 3.485735e-14
-## 88   87 5.609229e-15
-## 89   88 8.286361e-16
-## 90   89 1.117262e-16
-## 91   90 1.365543e-17
-## 92   91 1.500596e-18
-## 93   92 1.467975e-19
-## 94   93 1.262774e-20
-## 95   94 9.403635e-22
-## 96   95 5.939138e-23
-## 97   96 3.093301e-24
-## 98   97 1.275588e-25
-## 99   98 3.904861e-27
-## 100  99 7.888609e-29
-## 101 100 7.888609e-31</code></pre>
+<pre><code>##    V1   distvector
+## 1   0 7.707347e-03
+## 2   1 4.624408e-02
+## 3   2 1.271712e-01
+## 4   3 2.119520e-01
+## 5   4 2.384460e-01
+## 6   5 1.907568e-01
+## 7   6 1.112748e-01
+## 8   7 4.768921e-02
+## 9   8 1.490288e-02
+## 10  9 3.311751e-03
+## 11 10 4.967626e-04
+## 12 11 4.516023e-05
+## 13 12 1.881676e-06</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="hypothesis-testing.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the distribution of getting number of heads from flipping a coin 10 times</span></span>
-<span id="cb3-2"><a href="hypothesis-testing.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(dis<span class="sc">$</span>distvector,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.1</span>),<span class="at">names.arg =</span> dis<span class="sc">$</span>V1)</span></code></pre></div>
+<span id="cb3-2"><a href="hypothesis-testing.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(dis<span class="sc">$</span>distvector,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.3</span>),<span class="at">names.arg =</span> dis<span class="sc">$</span>V1)</span></code></pre></div>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 
 </div>

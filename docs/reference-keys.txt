@@ -7,3 +7,4 @@ z-test
 t-test
 binomial-distribution-calculator
 rock-paper-scissors
+rock-paper-scissors-distribution

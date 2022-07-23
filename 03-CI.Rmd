@@ -1,1 +1,7 @@
 # Confidence Interval
+```{r}
+# This example illustrates how to calculate the probability of having 50 out of 80 people supporting the Legalization of Medical Marijuana in Minnesoda.
+# Note to find probability of other values, you should make some changes. 
+Prob50 <- factorial(80) / factorial(80-50) / factorial(50)*(0.5)^50*(1-0.5)^(80-50)
+Prob50
+```

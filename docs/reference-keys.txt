@@ -1,10 +1,7 @@
 chance-model
 coin-flipping-simulation
 doris-buzz-simulation
-hypothesis-testing
-confidence-interval
-z-test
-t-test
 binomial-distribution-calculator
+hypothesis-testing
 rock-paper-scissors
-rock-paper-scissors-distribution
+confidence-interval

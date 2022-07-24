@@ -5,3 +5,6 @@ binomial-distribution-calculator
 hypothesis-testing
 rock-paper-scissors
 confidence-interval
+poll-simulation
+poll-p-value
+calculate-confidence-interval

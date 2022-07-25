@@ -1,5 +1,5 @@
 --- 
-title: "TLTE-889 Project"
+title: "Basic Statistics"
 author: "Nannan Wang"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
